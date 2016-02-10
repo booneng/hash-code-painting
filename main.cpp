@@ -165,6 +165,7 @@ void remove_lines_from_vector(vector <line*> &sqlines, vector <line*> &lines) {
     for(unsigned int j=0; j < lines.size(); j++) {
       if(sqlines[i] == lines[j]) {
 	lines.erase(lines.begin() + j);
+	j--;
       }
     }
   }
@@ -222,7 +223,6 @@ int main() {
 	    {
 	      square *temp = new square(i, j, S, painting, lines);
 	      remove_square_from_painting(temp, painting);
-	      print_painting(painting, N);
 	      commands.push_back(temp);
 	      add_lines_to_painting(temp->lines_in_square, paintingcopy);
 	      remove_lines_from_vector(temp->lines_in_square, lines);
